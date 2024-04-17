@@ -1,6 +1,4 @@
-# JACKAL_UGV
-All things you need for JACKAL robot in wisc-arclab.  
-  
+# JACKAL_UGV 
 All details are in [JACKAL_wiki](https://github.com/fuwafuwaboom/JACKAL_UGV/wiki).  
 1. For 2D radar navigation based on the move_base algorithm, please look directly at module `3.Navigation` in the wiki.  
 2. For VIO using OpenVINS, please see module `5.VIO` in the wiki.  
