@@ -1,13 +1,13 @@
 # JACKAL_UGV 
-1. For 2D lidar navigation based on the move_base algorithm, please look directly at module `3.Navigation` in the wiki.  
-2. For VIO using OpenVINS, please see module `5.VIO` in the wiki.  
-3. If this is your first time using JACKAL, it is recommended to start from the beginning of wiki.
+1. For 2D lidar navigation based on the move_base algorithm, please look directly at module `3.Navigation` in this tutorial.  
+2. For VIO using OpenVINS, please see module `5.VIO` in this tutorial.  
+3. If this is your first time using JACKAL, it is recommended to start from the beginning of this tutorial.
 
 Created by [TianxiaoYe](https://github.com/fuwafuwaboom). If you have any questions, please contact via email: **tye46@wisc.edu**
 ***
 ![711034013600912247](https://github.com/fuwafuwaboom/JACKAL_UGV/assets/80655645/7897fb24-0650-414a-af3f-b28be7ebe328)
 
-**Welcome to the JACKAL_UGV wiki!**
+**Welcome to the JACKAL_UGV  Tutorial!**
 
 JACKAL is a rugged, lightweight, fast and easy-to-use unmanned ground robot for rapid prototyping and research applications produced by Canada's clearpath company.
 
