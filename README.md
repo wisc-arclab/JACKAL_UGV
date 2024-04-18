@@ -5,3 +5,4 @@ All details are in [JACKAL_wiki](https://github.com/fuwafuwaboom/JACKAL_UGV/wiki
 3. If this is your first time using JACKAL, it is recommended to start from the beginning of wiki.
 
 Created by [TianxiaoYe](https://github.com/fuwafuwaboom). If you have any questions, please contact via email: **tye46@wisc.edu**
+***
