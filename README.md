@@ -7,14 +7,15 @@ Created by [TianxiaoYe](https://github.com/fuwafuwaboom). If you have any questi
 ***
 ![711034013600912247](https://github.com/fuwafuwaboom/JACKAL_UGV/assets/80655645/7897fb24-0650-414a-af3f-b28be7ebe328)
 
-**Welcome to the JACKAL_UGV Tutorial!**
+**Welcome to the JACKAL_UGV wiki!**
 
 JACKAL is a rugged, lightweight, fast and easy-to-use unmanned ground robot for rapid prototyping and research applications produced by Canada's clearpath company.
 
 The original JACKAL has some inconveniences (such as network card configuration issues, no graphical interface, no GPU on the onboard computer, etc.). 
 
 Arclab's JACKAL has made corresponding improvements to address these issues, so I specially wrote this wiki that is different from the [official tutorial](https://docs.clearpathrobotics.com/docs/ros1noetic/robots/outdoor_robots/jackal/tutorials_jackal/#driving-jackal).
-
+***
+# 0.Overview
 ## JACKAL's Password
 root account: `1`
 
@@ -50,7 +51,8 @@ The original JACKAL's onboard computer does not have a graphical interface, only
 
 ## JACKAL's Network
 The original JACKAL requires netplan to modify the network, which is very troublesome. This is because it lacks key network components and drivers. Fortunately, JACKAL can currently easily connect to wired and wireless networks through the network settings in the upper right corner. You can use it to connect to uwnet, arclab's wifi, etc.
-
+***
+# 1.Manual Control
 There are four ways to manually control JACKAL, namely using PS4 handle control, keyboard control, rviz interactive button control and using ROS command.
 ## PS4 Handle Control
 At present, JACKAL has been configured to communicate with the px4 controller (If you want to know how to pair, click [here](https://docs.clearpathrobotics.com/docs/ros1noetic/robots/outdoor_robots/jackal/tutorials_jackal/#pairing-the-controller)). The only thing you need to do is to press the switch button(button with PS logo in the middle) in the center of the controller, and then wait for the flashing light of the controller to turn solid blue to control JACKAL. 
@@ -116,7 +118,8 @@ Open a terminal and enter:
 `rostopic pub /cmd_vel geometry_msgs/Twist '{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.0}}' -r 10`
 
 You should see Jackal spinning in place
-
+***
+# 2.Lidar Configuring
 The radar used by JACKAL is velodyne's VLP-16 lidar called Puck. Since I have already installed Puck's ros driver package, it can be used directly.
 ## Using Puck
 Using Puck is divided into the following parts:
@@ -167,7 +170,8 @@ Open a terminal and type
 `catkin_make`
 
 `source devel/setup.bash`
-
+***
+# 3.Navigation
 There are many ways to navigate. The first is to first build a map through SLAM, and then use the created map as a global map for path planning. The second method is to only build a local map (assuming that the global map is infinite, that is, there are no obstacles), and then refresh the local map frequently to re-plan the path and finally achieve obstacle avoidance. This tutorial uses and explains the second method.
 
 Both methods can build maps from the following sensors:
@@ -221,7 +225,8 @@ This is a flowchart of the algorithm. We explain each part:
 6. static_transforms: This component provides fixed (static) transformations between Lidar frames in the jackal frame system, enabling different parts of the system to understand where sensors and other parts of the robot are located relative to each other.
 
 7. Base Controller: This receives velocity commands ('Twist' messages) from the 'local_planner' and translates them into movement commands for the robot's motors to execute the desired path.
-
+***
+# 4.Multi-machine Communication
 Different machines will only publish topics and run nodes in their own ROS systems, but we often encounter situations where we want to integrate the control of the entire system. For example, one computer is responsible for receiving sensor signals, and another computer is responsible for running the control algorithm. At this time, we need to centralize these devices in a ROS system for control through multi-machine communication (that is, all nodes and topics can be controlled from the terminal of only one machine)
 ## Set up the Master system
 The host is the computer we directly control, here is Jackal's onboard computer.
@@ -246,7 +251,8 @@ Add sentences at the end of the `~/.bashrc` file:
 Add a sentence at the middle of the `/etc/hosts` file:`10.140.69.172   jackal`
 
 **Remember to replace "10.140.69.172" with Jackal's current wireless network IP address**
-
+***
+# 5.VIO
 Since Jackal's own onboard computer does not have a GPU, and most VIO algorithms rely on GPU acceleration. Therefore, Jetson orin nano 8G is used to run the VIO algorithm and communicate with the Jackal onboard computer for master-slave communication. Since now all the settings have been configured, you can go directly to the "Using OpenVINS" section.
 
 _**Assume that your system has successfully installed cuda and cuda-supported OpenCV**_
@@ -313,7 +319,8 @@ see [here](https://www.youtube.com/watch?v=BtzmsuJemgI)
 3. Using OpenVINS
 
 `roslaunch ov_msckf zed2i.launch `
-
+***
+# 6.Remote Desktop Control
 The easiest way is to use nomachine.
 
 Download [Nomachine](https://www.nomachine.com/) at both the main device and the remotely connected device, plug in the HDMI faker to the remotely connected device, and ensure that both devices are connected to the same network.
