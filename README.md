@@ -65,44 +65,11 @@ Quick mode: Hold down the R1 button of the handle and use the left joystick to c
 This status proves that the connection has been successful
 
 ## Keyboard Control
-The first step is to set environment variables in the workspace:
+We do have our own nodes, but the official ones are better：
 
-`cd`
+`sudo apt-get install ros-noetic-teleop-twist-keyboard`
 
-`cd Jackal_ws`
-
-`source devel/setup.bash`
-
-The second step is to run the keyboard control node
-
-`rosrun keyboard_control keyboard_control`
-
-At this point you should be able to use `w``a``s``d` to control JACKAL movement
-
-Since the workspace and packages are already installed on the JACKAL onboard computer, you should be able to run it directly.
-If you do not have a corresponding workspace, create a workspace:
-
-`cd`
-
-`mkdir -p Jackal_ws/src/`
-
-`cd Jackal_ws/src/`
-
-`catkin_init_workspace`
-
-`cd ~/Jackal_ws`
-
-`catkin_make`
-
-`echo "source ~/Jackal_ws/devel/setup.bash" >> ~/.bashrc`
-
-Then download the code under the keyboard_control_ros_package branch of this code repository in the src directory:
-
-`cd src`
-
-`git clone -b keyboard_control_ros_package https://github.com/fuwafuwaboom/JACKAL_UGV.git`
-
-Then repeat the steps at first
+`rosrun teleop_twist_keyboard teleop_twist_keyboard.py`
 
 ## Rviz Interactive Button Control
 Open the terminal and enter: `roslaunch jackal_viz view_robot.launch`
@@ -118,6 +85,9 @@ Open a terminal and enter:
 `rostopic pub /cmd_vel geometry_msgs/Twist '{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.0}}' -r 10`
 
 You should see Jackal spinning in place
+
+***
+It should be noted that manually published linear and angular velocities are often inaccurate due to the presence of friction and other reasons (this is why we need control algorithms to combat these noises)
 ***
 # 2.Lidar Configuring
 The radar used by JACKAL is velodyne's VLP-16 lidar called Puck. Since I have already installed Puck's ros driver package, it can be used directly.
