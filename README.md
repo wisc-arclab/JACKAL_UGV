@@ -1,7 +1,7 @@
 # JACKAL_UGV 
 1. For 2D lidar navigation based on the move_base algorithm, please look directly at module `3.Navigation` in this tutorial.  
 2. For VIO using OpenVINS, please see module `5.VIO` in this tutorial.
-3. For MPC control using ACADO, please see `ACADO_MPC` branch.
+3. For MPC control using ACADO, please see [`ACADO_MPC`](https://github.com/wisc-arclab/JACKAL_UGV/tree/ACADO_MPC) branch.
 4. If this is your first time using JACKAL, it is recommended to start from the beginning of this tutorial.
 
 Created by [TianxiaoYe](https://github.com/fuwafuwaboom). If you have any questions, please contact via email: **tye46@wisc.edu**
