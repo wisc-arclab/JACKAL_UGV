@@ -92,3 +92,4 @@ If there is a discrepancy between the pose released by motive and the simulation
 ```
 ./test
 ```
+If you want to see the visual interface, please open rviz yourself and open related topics.
