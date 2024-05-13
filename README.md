@@ -58,7 +58,7 @@ sudo apt-get install ros-noetic-jackal-simulator ros-noetic-jackal-desktop ros-n
 ```
 roslaunch jackal_gazebo jackal_world.launch
 ```
-3. Download the rviz configuration file `jackal_mpc_traj.rviz` and run the following command in this directory to open rviz
+3. Download the rviz configuration file [jackal_mpc_traj.rviz](https://github.com/wisc-arclab/JACKAL_UGV/blob/ACADO_MPC/jackal_mpc_traj.rviz) and run the following command in this directory to open rviz
 ```
 rviz -d jackal_mpc_traj.rviz
 ```
