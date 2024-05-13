@@ -33,7 +33,7 @@ If your formulation file is written correctly, you should see reasonable control
 ```
 mv JACKAL_mpc_continous /workspace/you/choose
 ```
-8. Remove qpoases test.c Makefile and add new version of them:
+8. Remove `qpoases` `test.c` `Makefile` and add new version of them:
 ```
 rm -r test.c Makefile qpoases/
 ```
