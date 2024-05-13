@@ -37,7 +37,7 @@ mv JACKAL_mpc_continous /workspace/you/choose
 ```
 rm -r test.c Makefile qpoases/
 ```
-New version of these files are here and you can clone it by:
+New version of these files are [here](https://github.com/wisc-arclab/JACKAL_UGV/tree/ACADO_MPC/replacement_files)  and you can clone this branch by:
 ```
 git clone --single-branch --branch ACADO_MPC https://github.com/wisc-arclab/JACKAL_UGV.git
 ```
