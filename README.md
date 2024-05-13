@@ -3,7 +3,7 @@ This repo is using ACADO-Toolkits to deploy Model Predictive Control on JACKAL(o
 
 Created by [TianxiaoYe](https://github.com/fuwafuwaboom). If you have any questions, please contact via email: **tye46@wisc.edu**
 ***
-This section refers to the work of [MuSHR MPC](https://github.com/wisc-arclab/arclab_vehicles/tree/ACADO-MPC?tab=readme-ov-file)
+This work refers to the work of [MuSHR MPC](https://github.com/wisc-arclab/arclab_vehicles/tree/ACADO-MPC?tab=readme-ov-file)
 ## ACADO generated MPC code with qpOASES interface
 1. Follow the tutorial below to install [ACADO from MATLAB](https://acado.github.io/matlab_overview.html)
 2. Download optimization formulation for ACADO, JACKAL_mpc_continuous.cpp, and move it to `ACADOtoolkit/examples/code-generation/mpc_mhe/` inside the ACADO package. Please check [tutorials](https://acado.github.io/matlab_overview.html) for ACADOtoolkit to see how to modify the formulation.
