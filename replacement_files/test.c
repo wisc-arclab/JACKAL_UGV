@@ -7,6 +7,7 @@
 #include "geometry_msgs/Pose.h"
 #include "geometry_msgs/Quaternion.h"
 #include "geometry_msgs/Twist.h"
+#include "nav_msgs/Odometry.h"
 #include "std_msgs/Float64.h"
 #include "ackermann_msgs/AckermannDriveStamped.h"
 #include <stdio.h>
@@ -54,9 +55,9 @@ extern double traj_ref [NY*N] = {};
 //TODO for trajectory modification
 //pre-defined parameters for reference trajectory
 extern double pi = 2*acos(0.0);
-extern double radius = 1;
-extern double speed = 0.2;
-extern double pred_time = 1;
+extern double radius = 2;
+extern double speed = 0.08;
+extern double pred_time = 2.5;
 extern double inter_time = pred_time/N;
 
 /*
@@ -154,36 +155,33 @@ void pos_callback(const geometry_msgs::PoseStamped::ConstPtr& msg){
 */
 
 
-void pos_callback(const geometry_msgs::PoseStamped::ConstPtr& msg) {
-
-    double x = -msg->pose.orientation.x;
-    double y = msg->pose.orientation.y;
-    double z = 0.0;
+void pos_callback(const nav_msgs::Odometry::ConstPtr& msg) {
     double w = 0.0;
-      
-    	//approximate small angle (z)
-	if(fabs(msg->pose.orientation.z) < 0.0001){
-		z = 0.0;
-	} else {
-		z = msg->pose.orientation.z;
-	}
-	if(z < 0){
-		w = -msg->pose.orientation.w;
-	} else {
-		w = msg->pose.orientation.w;
-	}
-    
-    // 控制点的位置信息
-    controlio.x = msg->pose.position.x;
-    controlio.y = msg->pose.position.y;
+    double z = 0.0;
 
-    // 计算偏航角
-    double yaw = std::atan2(2.0 * (w * z + x * y), 1.0 - 2.0 * (y * y + z * z));
+    // Access position from the pose.pose.position
+    controlio.x = msg->pose.pose.position.x;
+    controlio.y = msg->pose.pose.position.y;
 
-    controlio.theta = yaw;
-    // 偏航角转换为度
-    //controlio.theta = yaw * (180.0 / M_PI);
+    // Access orientation from the pose.pose.orientation
+    z = msg->pose.pose.orientation.z;
+
+    // approximate small angle (z)
+    if (fabs(z) < 0.0001) {
+        z = 0.0;
+    } else {
+        z = msg->pose.pose.orientation.z;
+    }
+
+    if (z < 0) {
+        w = -msg->pose.pose.orientation.w;
+    } else {
+        w = msg->pose.pose.orientation.w;
+    }
+
+    controlio.theta = 2 * acos(w);
 }
+
 
 
 /*
@@ -202,10 +200,10 @@ int main(int argc, char **argv)
   double dis;
 
   //---- ROS subs and pubs ----
-  ros::init(argc, argv,"subscriberPos");
+  ros::init(argc, argv,"JackalMPCcontroller");
   ros::NodeHandle nh;
   // sub for orientation from mocap, change to /car/car_pose for HITL simulation
-  ros::Subscriber subscriberpos = nh.subscribe("/vrpn_client_node/JACKAL/pose",1000,pos_callback); 
+  ros::Subscriber subscriberpos = nh.subscribe("/odometry/filtered",1000,pos_callback); 
   // pub for Mushr input, will drive the hardware drivetrain
   //ros::Publisher input_pub = nh.advertise <ackermann_msgs::AckermannDriveStamped> ("/car/mux/ackermann_cmd_mux/input/navigation", 1000);
   ros::Publisher input_pub = nh.advertise <geometry_msgs::Twist> ("/cmd_vel", 1000);
@@ -292,13 +290,13 @@ int main(int argc, char **argv)
     input_pub.publish(msg); //publish
 
     //publish reference trajectory for visualization
-    traj.header.frame_id = "/map"; //add header and stamp for visualization
+    traj.header.frame_id = "odom"; //add header and stamp for visualization
     traj.header.stamp = ros::Time::now();
     traj_pub.publish(traj); //publish
 
     //publish predicted trajectory for visualization
     geometry_msgs::PoseArray path;
-    path.header.frame_id = "/map"; //add header and stamp for visualization
+    path.header.frame_id = "odom"; //add header and stamp for visualization
     path.header.stamp = ros::Time::now();
     geometry_msgs::Pose pathpose; 
     for (int i = 0; i<N+1; ++i){ //convert from radian to quaternion
