@@ -63,12 +63,14 @@ roslaunch jackal_gazebo jackal_world.launch
 rviz -d jackal_mpc_traj.rviz
 ```
 
-4. In your generated qpOASES interface package directory, run the executable file. This will subscribe to JACKAL's pose information (`/odometry/filtered` topic), execute the controller designed by MPC and issue movement instructions to the car's drive system (`/cmd_vel` topic). You should be able to see two arrow flows of different colors in rviz (the green one represents the scheduled trajectory, and the red one represents the mpc predicted trajectory) and your car moving in the gazebo.
+4. In your generated qpOASES interface package directory, run the executable file. 
 ```
 ./test
 ```
+This will subscribe to JACKAL's pose information (`/odometry/filtered` topic), execute the controller designed by MPC and issue movement instructions to the car's drive system (`/cmd_vel` topic). You should be able to see two arrow flows of different colors in rviz (the green one represents the scheduled trajectory, and the red one represents the mpc predicted trajectory) and your car moving in the gazebo.
 
 ## JACKAL MPC with MoCap
+
 _**Make sure your controller runs well in Gazebo before experimenting on JACKAL**_
 
 1. Open the laboratory's Mocap system, open the motive software, and ensure that the rigid body information has been published to the relevant network ip (192.168.1.202). Then on Jackal, in the /home/vrpn_ws directory:
@@ -76,18 +78,15 @@ _**Make sure your controller runs well in Gazebo before experimenting on JACKAL*
 source devel/setup.bash
 roslaunch vrpn_client_ros sample.launch  server:=192.168.1.202
 ```
-
-
 This will create a publisher to receive Jackal pose messages from the Mocap system and publish them.
 
-2. Modify the pose subscriber in the test.c file to `/vrpn_client_node/JACKAL/pose`. Modify the reference coordinate system of the published trajectory to `/world` and then recompile it:
+2. Modify the pose subscriber in the [test.c](https://github.com/wisc-arclab/JACKAL_UGV/blob/ACADO_MPC/replacement_files/test.c) file to `/vrpn_client_node/JACKAL/pose`. Modify the reference coordinate system of the published trajectory to `/world` and then recompile it:
 ```
 make clean
 make
-
 ```
 
-If there is a discrepancy between the pose released by motive and the simulation in gazebo, please adjust it in the "pos_callback" function of "test.c"
+If there is a discrepancy between the pose released by motive and the simulation in gazebo, please adjust it in the `pos_callback` function of [test.c](https://github.com/wisc-arclab/JACKAL_UGV/blob/ACADO_MPC/replacement_files/test.c)
 
 3. run the executable file:
 ```
