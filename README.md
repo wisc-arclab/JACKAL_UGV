@@ -1,1 +1,1 @@
-[JACKAL_wiki](https://github.com/fuwafuwaboom/JACKAL_UGV/wiki)
+Using CppAD and Ipopt to solve nonlinear MPC models enables JACKAL to track various types of trajectories
