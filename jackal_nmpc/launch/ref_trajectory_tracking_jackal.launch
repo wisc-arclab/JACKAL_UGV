@@ -1,0 +1,24 @@
+<launch>
+    <!--  ************** Global Parameters ***************  -->
+    <param name="use_sim_time" value="true"/>
+    <arg name="controller"  default="mpc" doc="opt: dwa, mpc, pure_pursuit"/> 
+    <arg name="trajectory_type"  default="infinite" doc="opt: circle, epitrochoid, square, infinite"/> 
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+        <param name="publish_frequency" type="double" value="50.0" />
+    </node>
+
+    <!--  ************** Reference trajectory generation **************  -->
+    <node name="mpc_trajectory_generation" pkg="mpc_ros" type="mpc_trajectory_generation.py"  if="$(eval controller == 'mpc')">
+        <param name="trajectory_type" value="$(arg trajectory_type)" />
+    </node>
+
+    <!--  ************** MPC Node **************  -->
+    <node name="MPC_tracking" pkg="mpc_ros" type="tracking_reference_trajectory" output="screen" if="$(eval controller == 'mpc')" >
+        <rosparam file="$(find mpc_ros)/params/mpc_local_square_params.yaml" command="load" />
+    </node>
+
+    <!--  ************** Visualisation **************  -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mpc_ros)/rviz/rviz_navigation.rviz"/>
+
+</launch>
