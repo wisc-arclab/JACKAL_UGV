@@ -3,6 +3,10 @@ This code repository uses CasADi to automatically solve the optimal control prob
 
 Created by [TianxiaoYe](https://github.com/fuwafuwaboom). If you have any questions, please contact via email: **tye46@wisc.edu**
 ***
+
+The following is the effect based on the JACKAL gazebo simulator: 
+
+***
 # Install CasADi
 Before following the steps below, make sure you have installed casadi and ipopt.
 
