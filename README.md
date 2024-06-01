@@ -29,7 +29,7 @@ git clone --single-branch --branch CasADi-NMPC https://github.com/wisc-arclab/JA
 
 5. First run your own robot (such as the car in the simulator)
 
-6. Then open the Track Tracking Environment panel. Then open the Track Tracking Environment panel. This should give you a rivz file with a full green circular track:
+6. Then open the Track Tracking Environment panel. This should give you a rivz file with a full green circular track:
 
 ```
 roslaunch mpc_tracking tracking_env.launch
