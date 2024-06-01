@@ -48,7 +48,6 @@ rosrun mpc_tracking mpc_tracking_node
 ```
 
 # Install CasADi
-Before following the steps below, make sure you have installed casadi and ipopt.
 
 Create the following two scripts for installation:
 
