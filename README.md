@@ -6,6 +6,9 @@ Created by [TianxiaoYe](https://github.com/fuwafuwaboom). If you have any questi
 
 The following is the effect based on the JACKAL gazebo simulator: 
 
+https://github.com/wisc-arclab/JACKAL_UGV/assets/80655645/0d3f67fa-11c7-4bb6-806f-5d0a5fc2a871
+
+
 ***
 # Install CasADi
 Before following the steps below, make sure you have installed casadi and ipopt.
