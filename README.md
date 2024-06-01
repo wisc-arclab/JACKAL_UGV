@@ -41,7 +41,7 @@ roslaunch mpc_tracking tracking_env.launch
 rosrun mpc_tracking plot_control_input.py
 ```
 
-8. Finally, run the mpc controller node and start mpc control. You should see your robot automatically following a circular trajectory.
+8. Finally, run the mpc controller node and start mpc control. You should see your robot automatically following a circular trajectory:
 
 ```
 rosrun mpc_tracking mpc_tracking_node
