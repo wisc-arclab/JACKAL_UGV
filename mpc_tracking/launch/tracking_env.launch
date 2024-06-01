@@ -1,0 +1,11 @@
+<launch>
+    <!-- Run the odom_publisher node -->
+    <node name="odom_publisher" pkg="mpc_tracking" type="odom_publisher" output="screen"/>
+
+    <!-- Run the trajectory_publisher node -->
+    <node name="trajectory_publisher" pkg="mpc_tracking" type="trajectory_publisher" output="screen"/>
+
+    <!-- Open RViz with a specific configuration file -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mpc_tracking)/rviz/mpc_tracking.rviz" output="screen"/>
+</launch>
+
