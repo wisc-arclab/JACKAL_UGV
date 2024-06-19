@@ -35,8 +35,8 @@ git clone --single-branch --branch ACADO_NMPC_ROS https://github.com/wisc-arclab
 Move the package to the `/src` directory and remove other files:
 
 ```
-mv ACADO_NMPC_ROS/acado_mpc .
-rm -r ACADO_NMPC_ROS
+mv JACKAL_UGV/acado_mpc .
+rm -r JACKAL_UGV
 ```
 
 ## 4. Installing ACADO
