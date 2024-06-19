@@ -28,7 +28,7 @@ Navigate to the `/src` directory in your workspace and download the package:
 
 ```
 cd ~/NMPC_ACADO_ws/src
-git clone https://github.com/TianxiaoYe-Shawn/ACADO_NMPC_ROS.git
+git clone --single-branch --branch ACADO_NMPC_ROS https://github.com/wisc-arclab/JACKAL_UGV.git
 ```
 
 
