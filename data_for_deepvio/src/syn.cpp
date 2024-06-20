@@ -21,9 +21,11 @@ void imu_callback(const sensor_msgs::ImuConstPtr& imu)
 {
     // save IMU data
     float imu_index = sync_message_count + sub_imu_index / 10.0;
-    imu_file << imu_index << "," << imu->angular_velocity.x << "," << imu->angular_velocity.y << "," << imu->angular_velocity.z << ","
+    if(sub_imu_index < 1.0)
+    {imu_file << imu_index << "," << imu->angular_velocity.x << "," << imu->angular_velocity.y << "," << imu->angular_velocity.z << ","
              << imu->linear_acceleration.x << "," << imu->linear_acceleration.y << "," << imu->linear_acceleration.z << "\n";
-    sub_imu_index += 0.1; // renew index 
+    sub_imu_index += 0.1; // renew index
+    } 
 }
 
 void sync_callback(const sensor_msgs::ImuConstPtr& imu, const nav_msgs::OdometryConstPtr& odometry, const sensor_msgs::ImageConstPtr& image)
