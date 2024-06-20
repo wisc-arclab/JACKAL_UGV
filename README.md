@@ -1,3 +1,7 @@
+This repo is using ACADO-Toolkits to deploy Model Predictive Control on JACKAL(or JACKAL Gazebo simulator).
+
+Created by [TianxiaoYe](https://github.com/fuwafuwaboom). If you have any questions, please contact via email: **tye46@wisc.edu**
+***
 The following is the effect based on the JACKAL gazebo simulator:
 
 https://github.com/wisc-arclab/JACKAL_UGV/assets/80655645/be046752-33a6-4dac-829a-18542c17d076
