@@ -4,7 +4,7 @@
 3. For NMPC control using ACADO, please see [`ACADO_NMPC_ROS`](https://github.com/wisc-arclab/JACKAL_UGV/tree/ACADO_NMPC_ROS) branch.
 4. For NMPC control using CppAD/Ipopt, please see [`CppAD/Ipopt-NMPC`](https://github.com/wisc-arclab/JACKAL_UGV/tree/CppAD/Ipopt-NMPC) branch.
 5. For NMPC control using CasADi, please see[`CasADi-NMPC`](https://github.com/wisc-arclab/JACKAL_UGV/tree/CasADi-NMPC) branch.
-6. For NMPC control using CasADi, please see[`CasADi-NMPC`](https://github.com/wisc-arclab/JACKAL_UGV/tree/CasADi-NMPC) branch.
+6. For Data synchronization and collection from jackal gazebo simulator, please see[`Data-synchronization-and-collection`](https://github.com/wisc-arclab/JACKAL_UGV/tree/CasADi-NMPC) branch.
 7. If this is your first time using JACKAL, it is recommended to start from the beginning of this tutorial.
 
 Created by [TianxiaoYe](https://github.com/fuwafuwaboom). If you have any questions, please contact via email: **tye46@wisc.edu**
