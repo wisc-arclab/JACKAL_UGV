@@ -1,7 +1,7 @@
 
 ## Install ACACOS
 
-following this [tutorial](https://docs.acados.org/installation/index.html) (choose **CMake** part to proceed, not Make) to install
+following this [tutorial](https://docs.acados.org/installation/index.html) (choose **CMake** part to proceed, not **Make**) to install
 
 If your Ubuntu is running on WSL, follow the **Windows 10+(WSL)** part first
 
