@@ -64,7 +64,7 @@ I choose Python Interface (Currently, Python >= 3.8 is tested).
     python3 minimal_example_ocp.py
     ```
     
-    you will see bug: `! LaTeX Error: File `type1cm.sty' not found.`
+    you will see bug: `! LaTeX Error: File 'type1cm.sty' not found.`
     
     Now go into this `minimal_example_ocp.py` file, modify `latexify=True`  into `latexify=False`
     
