@@ -1,5 +1,5 @@
 
-## Install ACACOS
+## Compile ACACOS
 
 following this [tutorial](https://docs.acados.org/installation/index.html) (choose **CMake** part to proceed, not **Make**) to install
 
