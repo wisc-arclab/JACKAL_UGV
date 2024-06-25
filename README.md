@@ -76,6 +76,6 @@ I choose Python Interface (Currently, Python >= 3.8 is tested).
     
     You should see the result like the following:
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/dde9c496-d2ef-4df3-979b-b73acdba18c4/27529840-4171-43d3-9e8d-a04e33f4ee1f/Untitled.png)
+    ![Untitled](https://github.com/wisc-arclab/JACKAL_UGV/blob/ACADOS_NMPC_ROS/image.png)
     
     Means you have successfully installed ACAODS
