@@ -2,7 +2,7 @@
 1. For 2D lidar navigation based on the move_base algorithm, please look directly at module [`3.Navigation`](https://github.com/wisc-arclab/JACKAL_UGV/blob/main/README.md#3navigation) in this tutorial.  
 2. For VIO using OpenVINS, please see module [`5.VIO`](https://github.com/wisc-arclab/JACKAL_UGV/blob/main/README.md#5vio) in this tutorial.
 3. For NMPC control using ACADO, please see [`ACADO_NMPC_ROS`](https://github.com/wisc-arclab/JACKAL_UGV/tree/ACADO_NMPC_ROS) branch.
-4. For NMPC control using ACADOS, please see [`ACADO_NMPC_ROS`](https://github.com/wisc-arclab/JACKAL_UGV/tree/ACADO_NMPC_ROS) branch.
+4. For NMPC control using ACADOS, please see [`ACADOS_NMPC_ROS`](https://github.com/wisc-arclab/JACKAL_UGV/tree/ACADOS_NMPC_ROS) branch.
 5. For NMPC control using CppAD/Ipopt, please see [`CppAD/Ipopt-NMPC`](https://github.com/wisc-arclab/JACKAL_UGV/tree/CppAD/Ipopt-NMPC) branch.
 6. For NMPC control using CasADi, please see[`CasADi-NMPC`](https://github.com/wisc-arclab/JACKAL_UGV/tree/CasADi-NMPC) branch.
 7. For Data synchronization and collection from jackal gazebo simulator, please see[`Data-synchronization-and-collection`](https://github.com/wisc-arclab/JACKAL_UGV/tree/Data-synchronization-and-collection) branch.
