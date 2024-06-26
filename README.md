@@ -66,7 +66,12 @@ I choose Python Interface (Currently, Python >= 3.8 is tested).
     
     you will see bug: `! LaTeX Error: File 'type1cm.sty' not found.`
     
-    Now go into this `minimal_example_ocp.py` file, modify `latexify=True`  into `latexify=False`
+    Now install texlive and its dependencies
+
+   ```bash
+   sudo apt install texlive
+   sudo apt install texlive-latex-extra cm-super dvipng
+   ```
     
     Then run it again:
     
