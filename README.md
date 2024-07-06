@@ -1,4 +1,4 @@
-# RUN this ROS package
+# Trajectory tracking using high-speed solver ACADOS
 ## Simlation
 First make sure you have successfully [installed ACADOS](https://github.com/wisc-arclab/JACKAL_UGV/blob/ACADOS_NMPC_ROS/README.md#install-acados)
 
