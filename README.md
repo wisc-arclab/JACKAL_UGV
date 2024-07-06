@@ -1,3 +1,12 @@
+# RUN this ROS package
+## Simlation
+After you [installed ACADOS]()
+```
+cd /path/to/scripts/SingleIntegrator
+source /path/to/your/virtualenv/bin/activate
+python3 open_loop_simulation.py
+```
+
 # Install ACADOS
 ## Compile ACACOS
 
