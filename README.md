@@ -2,7 +2,7 @@
 ## Simlation
 After you [installed ACADOS](https://github.com/wisc-arclab/JACKAL_UGV/blob/ACADOS_NMPC_ROS/README.md#install-acados)
 
-Run the following to test your solver (You can define your robot model in [robot_model.py](https://github.com/wisc-arclab/JACKAL_UGV/blob/ACADOS_NMPC_ROS/scripts/SingleIntegrator/robot_model.py) and design your solver in file):
+Run the following to test your solver (You can define your robot model in [robot_model.py](https://github.com/wisc-arclab/JACKAL_UGV/blob/ACADOS_NMPC_ROS/scripts/SingleIntegrator/robot_model.py) and design your solver in [create_ocp_solver_description.py](https://github.com/wisc-arclab/JACKAL_UGV/blob/ACADOS_NMPC_ROS/scripts/SingleIntegrator/create_ocp_solver_description.py)):
 ```
 cd /path/to/scripts/SingleIntegrator
 source /path/to/your/virtualenv/bin/activate
