@@ -8,7 +8,8 @@ cd /path/to/scripts/SingleIntegrator
 source /path/to/your/virtualenv/bin/activate
 python3 open_loop_simulation.py
 ```
-
+![Circular trajectory tracking simulation](https://github.com/wisc-arclab/JACKAL_UGV/blob/ACADOS_NMPC_ROS/simulation.png)
+![Circular trajectory tracking simulation states and input](https://github.com/wisc-arclab/JACKAL_UGV/blob/ACADOS_NMPC_ROS/simulation_x_u.png)
 # Install ACADOS
 ## Compile ACACOS
 
