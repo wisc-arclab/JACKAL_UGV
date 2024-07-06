@@ -1,6 +1,8 @@
 # RUN this ROS package
 ## Simlation
-After you [installed ACADOS]()
+After you [installed ACADOS](https://github.com/wisc-arclab/JACKAL_UGV/blob/ACADOS_NMPC_ROS/README.md#install-acados)
+
+Run the following to test your solver (You can define your robot model in file and design your solver in file):
 ```
 cd /path/to/scripts/SingleIntegrator
 source /path/to/your/virtualenv/bin/activate
