@@ -1,7 +1,7 @@
 {
     "acados_include_path": "/home/pc2004/acados/include",
     "acados_lib_path": "/home/pc2004/acados/lib",
-    "code_export_directory": "/home/pc2004/Jackal_mpc_acados/SingleIntegrator/c_generated_code",
+    "code_export_directory": "/home/pc2004/NMPC_ACADOS_ws/src/acados_mpc/scripts/SingleIntegrator/c_generated_code",
     "constraints": {
         "C": [],
         "C_e": [],

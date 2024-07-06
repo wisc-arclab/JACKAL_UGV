@@ -56,12 +56,12 @@ catkin_package(
 link_directories(${PROJECT_SOURCE_DIR}/scripts/c_generated_code)
 link_directories(/usr/local/lib)
 
-add_executable(mpc_node src/mpc_node.cpp)
-target_link_libraries(mpc_node
-	${PROJECT_SOURCE_DIR}/scripts/SingleIntegrator/c_generated_code/libacados_ocp_solver_SingleIntegrator.so
-	${acados_lib}/libacados.so
-	${catkin_LIBRARIES}
-)
+#add_executable(mpc_node src/mpc_node.cpp)
+#target_link_libraries(mpc_node
+#	${PROJECT_SOURCE_DIR}/scripts/SingleIntegrator/c_generated_code/libacados_ocp_solver_SingleIntegrator.so
+#	${acados_lib}/libacados.so
+#	${catkin_LIBRARIES}
+#)
 
 add_executable(trajectory_publisher src/trajectory_publisher.cpp)
 target_link_libraries(trajectory_publisher ${catkin_LIBRARIES})

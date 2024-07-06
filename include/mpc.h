@@ -8,8 +8,8 @@
 #include "acados/ocp_nlp/ocp_nlp_cost_ls.h"
 #include "blasfeo/include/blasfeo_d_aux.h"
 #include "blasfeo/include/blasfeo_d_aux_ext_dep.h"
-#include "jackal_model_model/jackal_model_model.h"
-#include "acados_solver_jackal_model.h"
+#include "SingleIntegrator_model/SingleIntegrator_model.h"
+#include "acados_solver_SingleIntegrator.h"
 
 // Eigen
 #include "../src/Eigen-3.3/Eigen/Core"
