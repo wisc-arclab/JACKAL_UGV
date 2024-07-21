@@ -35,14 +35,6 @@ cd ~/NMPC_ACADO_ws/src
 git clone --single-branch --branch ACADO_NMPC_ROS https://github.com/wisc-arclab/JACKAL_UGV.git
 ```
 
-
-Move the package to the `/src` directory and remove other files:
-
-```
-mv JACKAL_UGV/acado_mpc .
-rm -r JACKAL_UGV
-```
-
 ## 4. Installing ACADO
 
 Install dependencies:
@@ -77,12 +69,12 @@ echo "source ~/ACADOtoolkit/build/acado_env.sh" >> ~/.bashrc
 
 ## 5. Compiling ROS Packages
 
-ACADO's advantage is that it can generate efficient C code through a symbolic language. First, modify your own MPC model in the file `symbolic_mpc.cpp` inside `acado_mpc/acado_export_code` (it's suggested not to modify it on the first run).
+ACADO's advantage is that it can generate efficient C code through a symbolic language. First, modify your own MPC model in the file `symbolic_mpc.cpp` inside `ACADO_NMPC_ROS/acado_export_code` (it's suggested not to modify it on the first run).
 
 Then generate the C code package:
 
 ```
-cd ~/NMPC_ACADO_ws/src/acado_mpc/acado_export_code
+cd ~/NMPC_ACADO_ws/src/ACADO_NMPC_ROS/acado_export_code
 mkdir build && cd build
 cmake ..
 make
@@ -95,12 +87,6 @@ Move the generated code and build the static library:
 mv symbolic_mpc_export/* ../../acado_mpc_export/
 cd ../../acado_mpc_export
 make
-```
-
-add `include` folder in your ROS package:
-```
-cd ~/NMPC_ACADO_ws/src/acado_mpc/
-mkdir include
 ```
 
 Compile the entire ROS package:
