@@ -13,7 +13,7 @@ Here is the straight line tracking simulation:
 Here is the curve tracking simulation:
 ![Curve trajectory tracking simulation](https://github.com/wisc-arclab/JACKAL_UGV/blob/ACADOS_NMPC_ROS/test_2_curve.png)
 
-Run the following to test your solver (You can define your robot model in [robot_model.py](https://github.com/wisc-arclab/JACKAL_UGV/blob/ACADOS_NMPC_ROS/scripts/SingleIntegrator/robot_model.py) and design your solver in [create_ocp_solver_description.py](https://github.com/wisc-arclab/JACKAL_UGV/blob/ACADOS_NMPC_ROS/scripts/SingleIntegrator/create_ocp_solver_description.py)):
+Run the following to test your solver (You can define your robot model in `robot_model.py` and design your solver in `create_ocp_solver_description.py`:
 ```
 cd /path/to/scripts/SingleIntegrator
 source /path/to/your/virtualenv/bin/activate
