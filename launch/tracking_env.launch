@@ -1,11 +1,21 @@
 <launch>
     <!-- Run the odom_publisher node -->
-    <node name="odom_publisher" pkg="acado_mpc" type="odom_publisher" output="screen"/>
+    <node name="odom_publisher" pkg="acados_mpc" type="odom_publisher" output="screen"/>
 
     <!-- Run the trajectory_publisher node -->
-    <node name="trajectory_publisher" pkg="acado_mpc" type="trajectory_publisher" output="screen"/>
+    <node name="trajectory_publisher" pkg="acados_mpc" type="trajectory_publisher" output="screen"/>
 
     <!-- Open RViz with a specific configuration file -->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find acado_mpc)/rviz/acado.rviz" output="screen"/>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find acados_mpc)/rviz/acados.rviz" output="screen"/>
+    
+    <!-- Run the nearest_point.py script -->
+    <!-- <node name="nearest_point" pkg="acados_mpc" type="nearest_point.py" output="screen" /> -->
+    
+    <!-- Run the seg_point.py script -->
+    <!-- <node name="seg_point" pkg="acados_mpc" type="seg_point.py" output="screen" /> -->
+    
+    <!-- Run the plot_control_input.py script -->
+    <node name="plot_control_input" pkg="acados_mpc" type="plot_control_input.py" output="screen" />
+        
 </launch>
 

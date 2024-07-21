@@ -1,7 +1,0 @@
-<launch>
-  <node name="run_mpc" pkg="acados_mpc" type="mpc_node" output="screen" required="true">
-  </node>
-
-<rosparam command="load" file="$(find acados_mpc)/config/ros_parameters.yaml"/>
-
-</launch>

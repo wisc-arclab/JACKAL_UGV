@@ -10,7 +10,7 @@ nav_msgs::Path generate_circle_trajectory(double radius, int points, std::string
     path.header.stamp = ros::Time::now();
 
     for (int i = 0; i < points; i++) {
-        double angle = i * 6 * M_PI / points;
+        double angle = i * 2 * M_PI / points;
         geometry_msgs::PoseStamped pose;
         pose.header.stamp = ros::Time::now();
         pose.header.frame_id = frame_id;
@@ -131,12 +131,12 @@ int main(int argc, char **argv)
     double wavelength = 10.0; // Wavelength of the waves
     int waves = 5;           // Number of waves
     int points_per_wave = 300;  // Number of points in each wave
-    int points = 1500;     // Number of points in the circle
+    int points = 1000;     // Number of points in the circle
     std::string frame_id = "odom";  // Or the frame you want to use
 
     // Generate the trajectory
-    //nav_msgs::Path path = generate_circle_trajectory(radius, points, frame_id);
-    nav_msgs::Path path = generate_figure_eight_trajectory(radius, points, frame_id);
+    nav_msgs::Path path = generate_circle_trajectory(radius, points, frame_id);
+    //nav_msgs::Path path = generate_figure_eight_trajectory(radius, points, frame_id);
     //nav_msgs::Path path = generate_wave_trajectory(amplitude, wavelength, points, frame_id);
     //nav_msgs::Path path = generate_multi_wave_trajectory(amplitude, wavelength, waves, points_per_wave, frame_id);
     

@@ -16,7 +16,4 @@ local_frame: base_link
 
 globla_local_topic: flag_global_map
 
-odom_husky: /husky_velocity_controller/odom
-
-
-
+odom_husky: /jackal_velocity_controller/odom
