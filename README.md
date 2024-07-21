@@ -4,7 +4,7 @@ Created by [TianxiaoYe](https://github.com/fuwafuwaboom). If you have any questi
 ***
 The following is the effect based on the JACKAL gazebo simulator:
 
-https://github.com/wisc-arclab/JACKAL_UGV/assets/80655645/be046752-33a6-4dac-829a-18542c17d076
+[https://github.com/wisc-arclab/JACKAL_UGV/assets/80655645/be046752-33a6-4dac-829a-18542c17d076](https://github.com/user-attachments/assets/5de52616-77d7-48ae-be6a-a90f0a99fa1d)
 
 # Build ACADO NMPC ROS package from scratch
 ## 1. Ubuntu and ROS Versions
