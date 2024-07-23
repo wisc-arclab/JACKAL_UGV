@@ -8,6 +8,20 @@ Since training VIO's neural network requires a car camera and rich scenes, I wro
 ```
 export JACKAL_URDF_EXTRAS=~/Downloads/zed2i.urdf.xacro
 ```
+Then open the JACKAL simulator with the city scene (I have embedded the city scene into the simulator scene):
+```
+roslaunch jackal_gazebo jackal_world.launch
+```
+Open the camera image to observe the front of the vehicle in real time: 
+```
+rosrun image_view image_view image:=/right_zed2i/color/image_raw
+```
+Then use the USB cable to directly connect the PS4 controller, and then open the controller control node:
+```
+roslaunch jackal_control teleop.launch joy_dev:=/dev/input/js0
+```
+Now you can use the controller to control JACKAL and observe the camera image changes.
+
 After you install this ros package, in the `/data` folder (should be created by yourself anywhere), run:
 
 ```
