@@ -27,6 +27,15 @@ roslaunch jackal_control teleop.launch joy_dev:=/dev/input/js0
 Now you can use the controller to control JACKAL and observe the camera image changes.
 
 ## Install this ROS function package and collect data
+Build your own workspace and in your `/src` folder, run:
+
+```
+git clone --single-branch --branch Data-synchronization-and-collection https://github.com/wisc-arclab/JACKAL_UGV.git
+```
+then in your workspace root directory, complie the ROS package by running:
+```
+catkin_make
+```
 
 Open the model_state_stamper node, which will publish ground truth messages with timestamps:
 ```
