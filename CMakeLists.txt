@@ -12,15 +12,27 @@ find_package(catkin REQUIRED COMPONENTS
   cv_bridge
   image_transport
   message_filters
+  message_generation
 )
 
 find_package(OpenCV REQUIRED)
 find_package(Eigen3 REQUIRED)
 
+add_message_files(
+  FILES
+  StampedModelStates.msg
+)
+
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+  geometry_msgs
+)
+
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES data_for_deepvio
-  CATKIN_DEPENDS roscpp message_filters sensor_msgs nav_msgs
+  CATKIN_DEPENDS roscpp message_filters sensor_msgs nav_msgs message_runtime geometry_msgs
 )
 
 include_directories(
@@ -31,13 +43,13 @@ include_directories(
 )
 
 add_executable(sync_subscriber_node src/syn.cpp)
-
-## Add cmake target dependencies of the executable
 add_dependencies(sync_subscriber_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-## Specify libraries to link a library or executable target against
 target_link_libraries(sync_subscriber_node
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
   ${EIGEN3_LIBRARIES}
 )
+
+add_executable(model_state_stamper src/model_state_stamper.cpp)
+target_link_libraries(model_state_stamper ${catkin_LIBRARIES})
+add_dependencies(model_state_stamper ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
