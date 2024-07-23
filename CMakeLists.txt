@@ -42,9 +42,9 @@ include_directories(
   ${EIGEN3_INCLUDE_DIR}
 )
 
-add_executable(sync_subscriber_node src/syn.cpp)
-add_dependencies(sync_subscriber_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(sync_subscriber_node
+add_executable(sync_node src/syn.cpp)
+add_dependencies(sync_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(sync_node
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
   ${EIGEN3_LIBRARIES}
