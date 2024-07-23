@@ -1,5 +1,5 @@
 # Data-synchronization-and-collection
-This tutorial will teach you how to use ARClab's desktop-03 to collect data and use it for neural network training. 
+This tutorial will teach you how to use ARClab's desktop-03 to collect data which for neural network training. 
 
 Created by [TianxiaoYe](https://github.com/fuwafuwaboom). If you have any questions, please contact via email: **tye46@wisc.edu**
 
