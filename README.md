@@ -26,10 +26,17 @@ roslaunch jackal_control teleop.launch joy_dev:=/dev/input/js0
 ```
 Now you can use the controller to control JACKAL and observe the camera image changes.
 
-After you install this ros package, in the `/data` folder (should be created by yourself anywhere), run:
+## Install this ROS function package and collect data
+
+Open the model_state_stamper node, which will publish ground truth messages with timestamps:
+```
+rosrun data_for_deepvio model_state_stamper
+```
+
+Then in the `/data` folder (or any folder should be created by yourself anywhere), run:
 
 ```
-rosrun data_for_deepvio sync_subscriber_node
+rosrun data_for_deepvio sync_node
 ```
 Then move jackal in the gazebo, and type `ctrl+c` to finish the collection
-It will give you synchronized image data, odometry data and imu data (now at 4hz), and will be 10 imu data between two synchronized data(40 hz).
+It will give you synchronized image data, odometry data and imu data (now at 4hz), and will be about 10 imu data between two synchronized data(40 hz).
