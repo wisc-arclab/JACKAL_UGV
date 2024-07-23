@@ -34,6 +34,10 @@ Build your own workspace and in your `/src` folder, run:
 ```
 git clone --single-branch --branch Data-synchronization-and-collection https://github.com/wisc-arclab/JACKAL_UGV.git
 ```
+create an `include` folder in the `JACKAL_UGV` folder:
+```
+mkdir include
+```
 then in your workspace root directory, complie the ROS package by running:
 ```
 catkin_make
