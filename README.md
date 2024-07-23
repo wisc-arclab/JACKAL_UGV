@@ -44,7 +44,7 @@ catkin_make
 ```
 
 ## Collect data
-After you finished [Open the JACKAL simulator with camera and city map]() part, now we can collect data.
+After you finished [Open the JACKAL simulator with camera and city map](https://github.com/wisc-arclab/JACKAL_UGV/blob/Data-synchronization-and-collection/README.md#open-the-jackal-simulator-with-camera-and-city-map) part, now we can collect data.
 
 Open the model_state_stamper node, which will publish ground truth messages with timestamps:
 ```
