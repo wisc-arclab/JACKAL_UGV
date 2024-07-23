@@ -4,7 +4,7 @@ This tutorial will teach you how to use ARClab's desktop-03 to collect data whic
 Created by [TianxiaoYe](https://github.com/fuwafuwaboom). If you have any questions, please contact via email: **tye46@wisc.edu**
 
 ## Open the JACKAL simulator with camera and city map
-**for every rosrun or roslaunch, open a new terminal**
+**[for every rosrun or roslaunch, open a new terminal]**
 
 The effect is as follows. The following text will explain how to operate it.
 
