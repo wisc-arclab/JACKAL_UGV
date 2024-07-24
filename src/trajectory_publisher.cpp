@@ -132,7 +132,7 @@ int main(int argc, char **argv)
     int waves = 5;           // Number of waves
     int points_per_wave = 300;  // Number of points in each wave
     int points = 1500;     // Number of points in the circle
-    std::string frame_id = "odom";  // Or the frame you want to use
+    std::string frame_id = "map";  // Or the frame you want to use
 
     // Generate the trajectory
     //nav_msgs::Path path = generate_circle_trajectory(radius, points, frame_id);

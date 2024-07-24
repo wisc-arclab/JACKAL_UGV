@@ -11,16 +11,15 @@
 #include <vector>
 #include <stdio.h>
 
-
 // ROS
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
-#include <nav_msgs/Odometry.h>
 #include <nav_msgs/Path.h>
 #include <geometry_msgs/PoseStamped.h>
 #include "geometry_msgs/Vector3.h"
 #include "geometry_msgs/Quaternion.h"
 #include "tf/transform_datatypes.h"
+#include "gazebo_msgs/ModelStates.h"
 
 using namespace std;
 
@@ -64,8 +63,17 @@ vector<double> update_states(vector<double> state, double v_cmd, double w_cmd);
 /* ROS PARAMS*/
 double weight_x, weight_y, weight_q, weight_v, weight_w;
 
-nav_msgs::Odometry odom;
-void stateCallback(const nav_msgs::Odometry& msg) { odom = msg; }
+geometry_msgs::Pose odom_pose;
+geometry_msgs::Twist odom_twist;
+void stateCallback(const gazebo_msgs::ModelStates& msg) {
+    for (size_t i = 0; i < msg.name.size(); ++i) {
+        if (msg.name[i] == "jackal") {
+            odom_pose = msg.pose[i];
+            odom_twist = msg.twist[i];
+            break;
+        }
+    }
+}
 
 bool receive_traj = false;
 nav_msgs::Path path;
@@ -83,9 +91,9 @@ void pathCallback(const nav_msgs::Path& msg)
     }
 }
 
-bool is_target(nav_msgs::Odometry cur, double goal_x, double goal_y)
+bool is_target(geometry_msgs::Pose cur, double goal_x, double goal_y)
 {
-	if(abs(cur.pose.pose.position.x - goal_x) < 0.05 && abs(cur.pose.pose.position.y - goal_y) < 0.05)
+	if(abs(cur.position.x - goal_x) < 0.05 && abs(cur.position.y - goal_y) < 0.05)
 	{
 		return true;
 	}
@@ -108,7 +116,7 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "mpc_node");
     ros::NodeHandle nh("~");
 
-    ros::Subscriber state_sub = nh.subscribe("/odometry/filtered", 10, stateCallback);
+    ros::Subscriber state_sub = nh.subscribe("/gazebo/model_states", 10, stateCallback);
     ros::Subscriber path_sub = nh.subscribe("/trajectory", 1, pathCallback);
 
     ros::Publisher vel_pub = nh.advertise<geometry_msgs::Twist>("/cmd_vel", 10);
@@ -145,13 +153,13 @@ int main(int argc, char **argv)
 		goal_y = path.poses[path.poses.size()-1].pose.position.y;
 
 		// State
-		double px = odom.pose.pose.position.x; // state[0];
-		double py = odom.pose.pose.position.y; // state[1];
+		double px = odom_pose.position.x; // state[0];
+		double py = odom_pose.position.y; // state[1];
 
-		double q0 = odom.pose.pose.orientation.x;
-		double q1 = odom.pose.pose.orientation.y;
-		double q2 = odom.pose.pose.orientation.z;
-		double q3 = odom.pose.pose.orientation.w;
+		double q0 = odom_pose.orientation.x;
+		double q1 = odom_pose.orientation.y;
+		double q2 = odom_pose.orientation.z;
+		double q3 = odom_pose.orientation.w;
 		double t0 = -2.0 * (q1*q1 + q2*q2) + 1.0;
 		double t1 = +2.0 * (q2*q3 + q0*q1);
 
@@ -212,7 +220,7 @@ int main(int argc, char **argv)
 		geometry_msgs::Twist vel;
 
 		// Check target
-		bool goal = is_target(odom, goal_x, goal_y) && count >= path.poses.size();
+		bool goal = is_target(odom_pose, goal_x, goal_y) && count >= path.poses.size();
 		if(goal)
 		{
 			vel.linear.x = 0;
@@ -419,3 +427,4 @@ vector<double> motion_prediction(const vector<double> &cur_states,
 	}
 	return result;
 }
+
