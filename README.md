@@ -71,10 +71,10 @@ echo "source ~/ACADOtoolkit/build/acado_env.sh" >> ~/.bashrc
 
 ACADO's advantage is that it can generate efficient C code through a symbolic language. First, modify your own MPC model in the file `symbolic_mpc.cpp` inside `ACADO_NMPC_ROS/acado_export_code` (it's suggested not to modify it on the first run).
 
-Then generate the C code package:
+Then generate the C code package in `acado_export_code` directory:
 
 ```
-cd ~/NMPC_ACADO_ws/src/ACADO_NMPC_ROS/acado_export_code
+cd path/to/acado_export_code
 mkdir build && cd build
 cmake ..
 make
@@ -119,6 +119,12 @@ Change the line `<arg name="world_name..."` to `<arg name="world_name" default="
 
 Then press `ESC`, type `:wq` to save and exit.
 
+Then modify the spawn pose of Jackal to match the trajectory in `jackal_world.launch`:
+
+Change the `x` `y` `z` `yaw` value to `0 0 1.0 0.78`
+
+Then save the change
+
 The JACKAL simulator is now fully set up.
 
 ## 7. Start Running!
@@ -160,7 +166,7 @@ Then directly `ctrl+c` to cancel, at this point the custom weight parameters hav
 Finally, in this terminal, open the MPC control node:
 
 ```
-rosrun acado_mpc mpc_node
+rosrun acado_mpc mpc_gt_node
 ```
 
 At this point, you should see the JACKAL vehicle start moving and following the trajectory.
