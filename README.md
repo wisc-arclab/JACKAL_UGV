@@ -61,11 +61,11 @@ Open the model_state_stamper node, which will publish ground truth messages with
 rosrun data_for_deepvio model_state_stamper
 ```
 
-**open a new terminal**. Then create a `data_1` folder in the `~/syn_ws/src/JACKAL_UGV/data` folder (or any folder should be created by yourself anywhere):
+**open a new terminal**. Then create a `new_data` folder in the `~/syn_ws/src/JACKAL_UGV/data` folder (or any folder should be created by yourself anywhere):
 ```
 cd ~/syn_ws/src/JACKAL_UGV/data
-mkdir data_1
-cd data_1
+mkdir new_data
+cd new_data
 ```
 
 run:
