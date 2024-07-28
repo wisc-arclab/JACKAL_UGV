@@ -43,7 +43,7 @@ create an `include` folder in the `JACKAL_UGV` folder:
 ```
 mkdir include
 ```
-then in your workspace root directory, complie the ROS package by running:
+then in your workspace root directory (like `syn_ws`), complie the ROS package by running:
 ```
 catkin_make
 ```
