@@ -1,5 +1,5 @@
 <launch>
-    <node pkg="mpc_ros" type="mpc_node" name="mpc_node" output="screen">
+    <node pkg="acado_mpc" type="mpc_gt_node" name="mpc_gt_node" output="screen">
         <param name="weight_x"  type="double"   value="100.0" />
         <param name="weight_y"  type="double"   value="100.0" />
         <param name="weight_q"  type="double"   value="0.5" />
