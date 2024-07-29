@@ -152,18 +152,10 @@ rosrun acado_mpc plot_control_input.py
 
 You should see the monitor displaying messages on two control input topics, which are static since no messages are published yet.
 
-Configure the MPC weight parameters:
+Configure the MPC weight parameters and run mpc node:
 
 ```
 roslaunch acado_mpc set_weight.launch
-```
-
-Then directly `ctrl+c` to cancel, at this point the custom weight parameters have been passed.
-
-Finally, in this terminal, open the MPC control node:
-
-```
-rosrun acado_mpc mpc_gt_node
 ```
 
 At this point, you should see the JACKAL vehicle start moving and following the trajectory.
