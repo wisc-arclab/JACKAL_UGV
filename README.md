@@ -1,4 +1,4 @@
-This repo is using ACADO-Toolkits to deploy Model Predictive Control on JACKAL(or JACKAL Gazebo simulator).
+This repo is using ACADO-Toolkits to deploy Model Predictive Control on JACKAL.
 
 Created by [TianxiaoYe](https://github.com/fuwafuwaboom). If you have any questions, please contact via email: **tye46@wisc.edu**
 ***
@@ -8,7 +8,7 @@ https://github.com/user-attachments/assets/57a63b16-b198-497a-86ee-d900d4d4dafb
 
 https://github.com/user-attachments/assets/5a6a158c-1f5f-4c19-b4e9-896cc26bc623
 
-# Build ACADO NMPC ROS package from scratch
+# ACADO MOCAP NMPC ROS package
 ## 1. Ubuntu and ROS Versions
 
 This ROS package is built on Ubuntu 20.04 and ROS Noetic full desktop version. It is recommended to follow this version, as the JACKAL simulator is also built on it.
@@ -34,7 +34,7 @@ Navigate to the `/src` directory in your workspace and download the package:
 
 ```
 cd ~/NMPC_ACADO_ws/src
-git clone --single-branch --branch ACADO_NMPC_ROS https://github.com/wisc-arclab/JACKAL_UGV.git
+git clone --single-branch --branch ACADO_MOCAP_NMPC https://github.com/wisc-arclab/JACKAL_UGV.git
 ```
 
 ## 4. Installing ACADO
@@ -100,32 +100,22 @@ catkin_make
 
 If everything is successful, your package is now fully set up. If you do not have any testing environment, the JACKAL simulator is a good choice next.
 
-## 6. Setting Up JACKAL Simulator
+## 6. Open MOCAP system and JACKAL VRPN node
 
-Install the JACKAL simulator with one command:
+Open the mocap system and calibrate.
 
+Paste the mocap reflective ball on JACKAL.
+
+In the motive interface, select the ball combination and create a rigid body.
+
+Publish the rigid body information to the 192.168.1.223 network segment (this is the network segment when jackal connects to arclab wifi)
+
+Make sure JACKAL is connected to arclab wifi. Open jackal and enter in the terminal:
 ```
-sudo apt-get install ros-noetic-jackal-simulator ros-noetic-jackal-desktop ros-noetic-jackal-navigation
+roslaunch vrpn_client_ros sample.launch  server:=192.168.1.202
 ```
+You will see jackal's pose message published in the topic `/vrpn_client_node/JACKAL/pose`
 
-Modify the simulator environment, we need a spacious area:
-
-```
-cd /opt/ros/noetic/share/jackal_gazebo/launch/
-sudo vi jackal_world.launch
-```
-
-Press `i` to enter edit mode.
-
-Change the line `<arg name="world_name..."` to `<arg name="world_name" default="$(find gazebo_ros)/launch/empty_world.launch" />`
-
-Then modify the spawn pose of Jackal to match the trajectory in `jackal_world.launch`:
-
-Change the `x` `y` `z` `yaw` value to `0 0 1.0 0.78`
-
-Then press `ESC`, type `:wq` to save and exit.
-
-The JACKAL simulator is now fully set up.
 ## 7. Start Running!
 
 (For each of the following `rosrun` and `roslaunch`, you need to open a new terminal)
