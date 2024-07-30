@@ -6,6 +6,7 @@ The following is the effect based on the JACKAL with MOCAP system:
 
 https://github.com/user-attachments/assets/57a63b16-b198-497a-86ee-d900d4d4dafb
 
+https://github.com/user-attachments/assets/5a6a158c-1f5f-4c19-b4e9-896cc26bc623
 
 # Build ACADO NMPC ROS package from scratch
 ## 1. Ubuntu and ROS Versions
