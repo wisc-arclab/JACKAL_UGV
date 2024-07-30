@@ -1,4 +1,4 @@
-This repo is using ACADO-Toolkits to deploy Model Predictive Control on JACKAL.
+This repo is using ACADO-Toolkits to deploy Model Predictive Control on [JACKAL](https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/).
 
 Created by [TianxiaoYe](https://github.com/fuwafuwaboom). If you have any questions, please contact via email: **tye46@wisc.edu**
 ***
