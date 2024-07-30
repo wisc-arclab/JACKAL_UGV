@@ -11,9 +11,11 @@ https://github.com/user-attachments/assets/5a6a158c-1f5f-4c19-b4e9-896cc26bc623
 # ACADO MOCAP NMPC ROS package
 ## 1. Ubuntu and ROS Versions
 
-This ROS package is built on Ubuntu 20.04 and ROS Noetic full desktop version. It is recommended to follow this version, as the JACKAL simulator is also built on it.
+This ROS package is built on Ubuntu 20.04 and ROS Noetic full desktop version. It is recommended to follow this version.
 
 ## 2. Creating a ROS Workspace
+
+In the base station (arclab desktop-03)
 
 Copy the following code into the terminal to create a workspace:
 
@@ -30,6 +32,8 @@ You can rename `NMPC_ACADO_ws` to your preferred workspace name.
 
 ## 3. Downloading ROS Packages
 
+In the base station (arclab desktop-03)
+
 Navigate to the `/src` directory in your workspace and download the package:
 
 ```
@@ -38,6 +42,8 @@ git clone --single-branch --branch ACADO_MOCAP_NMPC https://github.com/wisc-arcl
 ```
 
 ## 4. Installing ACADO
+
+In the base station (arclab desktop-03)
 
 Install dependencies:
 
@@ -71,7 +77,11 @@ echo "source ~/ACADOtoolkit/build/acado_env.sh" >> ~/.bashrc
 
 ## 5. Compiling ROS Packages
 
-ACADO's advantage is that it can generate efficient C code through a symbolic language. First, modify your own MPC model in the file `symbolic_mpc.cpp` inside `ACADO_NMPC_ROS/acado_export_code` (it's suggested not to modify it on the first run).
+ACADO's advantage is that it can generate efficient C code through a symbolic language. 
+
+In the base station (arclab desktop-03)
+
+First, modify your own MPC model in the file `symbolic_mpc.cpp` inside `ACADO_NMPC_ROS/acado_export_code` (it's suggested not to modify it on the first run).
 
 Then generate the C code package in `acado_export_code` directory:
 
@@ -110,7 +120,9 @@ In the motive interface, select the ball combination and create a rigid body.
 
 Publish the rigid body information to the 192.168.1.223 network segment (this is the network segment when jackal connects to arclab wifi)
 
-Make sure JACKAL is connected to arclab wifi. Open jackal and enter in the terminal:
+Make sure JACKAL is connected to arclab wifi. 
+
+Open jackal and enter in the terminal:
 ```
 roslaunch vrpn_client_ros sample.launch  server:=192.168.1.202
 ```
@@ -120,15 +132,9 @@ You will see jackal's pose message published in the topic `/vrpn_client_node/JAC
 
 (For each of the following `rosrun` and `roslaunch`, you need to open a new terminal)
 
-First, open the JACKAL simulator:
+In the base station (arclab desktop-03)
 
-```
-roslaunch jackal_gazebo jackal_world.launch
-```
-
-You should see the JACKAL vehicle parked in Gazebo.
-
-Then open the tracking test environment (including publishing trajectory, configuring rviz):
+First, open the tracking test environment (including publishing trajectory, configuring rviz):
 
 ```
 roslaunch acado_mpc tracking_env.launch
@@ -136,18 +142,13 @@ roslaunch acado_mpc tracking_env.launch
 
 You should see a green circular trajectory in rviz (you can customize your trajectory in the `trajectory_publisher.cpp` file).
 
-Then open the control input monitor:
-
-```
-rosrun acado_mpc plot_control_input.py
-```
-
-You should see the monitor displaying messages on two control input topics, which are static since no messages are published yet.
-
-Configure the MPC weight parameters and run mpc node:
+Then configure the MPC weight parameters and run mpc node:
 
 ```
 roslaunch acado_mpc set_weight.launch
 ```
 
 At this point, you should see the JACKAL vehicle start moving and following the trajectory.
+
+**Tips:**
+**You need to use ros multi-machine communication to set the base station as the `ros slave` and jackal as the `ros master`.**
