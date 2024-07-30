@@ -4,7 +4,8 @@ Created by [TianxiaoYe](https://github.com/fuwafuwaboom). If you have any questi
 ***
 The following is the effect based on the JACKAL with MOCAP system:
 
-https://github.com/user-attachments/assets/e2ae594c-e129-48eb-9734-08d5a29e63e0
+https://github.com/user-attachments/assets/57a63b16-b198-497a-86ee-d900d4d4dafb
+
 
 # Build ACADO NMPC ROS package from scratch
 ## 1. Ubuntu and ROS Versions
