@@ -1,0 +1,14 @@
+<launch>
+    <!-- Run the pose_transformer node -->
+    <node name="pose_transformer" pkg="acado_mpc" type="pose_transformer" output="screen"/>
+    
+    <!-- Run the mocap_path_publisher node -->
+    <node name="mocap_path_publisher" pkg="acado_mpc" type="mocap_path_publisher" output="screen"/>
+
+    <!-- Run the trajectory_publisher node -->
+    <node name="trajectory_publisher" pkg="acado_mpc" type="trajectory_publisher" output="screen"/>
+
+    <!-- Open RViz with a specific configuration file -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find acado_mpc)/rviz/acado.rviz" output="screen"/>
+</launch>
+
